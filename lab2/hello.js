@@ -60,6 +60,22 @@ var counter = function() {
     };
 };
 
+var counter2 = function() {
+    var i =0;
+    return function() {
+        return ++i;
+    };
+}();
+//immediately executed function  //iEF
+
+//Global Scope
+var counter3 = function() {
+    i =0; // <-- global
+    return function() {
+        return ++i;
+    };
+}();
+
 var c = counter();
 console.log(typeof c);
 
@@ -67,7 +83,7 @@ c();
 c();
 c();
 
-var d = counter();
+var d = counter2();
 d();
 d();
 
