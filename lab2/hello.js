@@ -83,9 +83,17 @@ c();
 c();
 c();
 
-var d = counter2();
-d();
-d();
+//var d = counter2();
+//d();
+//d();
 
 console.log(c());
-console.log(d());
+//console.log(d());
+
+var  numbers = [1,2,3,4,5,6,7,8];
+var evenNumbers = numbers.filter(function(item)
+{
+    return item % 2 === 0;
+});
+
+console.log(evenNumbers);
