@@ -1,5 +1,5 @@
 var ComputingServices = {}
-ComputingServices = (function(){
+lib.ComputingServices = (function(){
 
     var name;
     var cost;
@@ -22,4 +22,5 @@ ComputingServices = (function(){
     };
 })();
 
-console.log()
+console.log();
+sayHello();
