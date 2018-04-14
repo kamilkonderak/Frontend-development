@@ -1,6 +1,9 @@
 interface Person {
     name: string;
+    yob: number;
+    pesel?: number;
 }
+declare let myList: number[];
 declare class Student {
     name: string;
     yob: number;
@@ -12,3 +15,12 @@ declare let ziutek: {
     name: string;
     yob: number;
 };
+declare let myList2: Person[];
+declare let myTuple: [string, number];
+declare enum Color {
+    Red = 0,
+    Green = 1,
+    Blue = 2,
+}
+declare let something: any;
+declare let someone: Student;
