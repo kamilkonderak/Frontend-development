@@ -1,2 +1,7 @@
 TypeScript
-
+    HelloTS
+        package.js (node, npm)
+        tsconfig.json (TypeScript)
+        .babelrc (Babel)
+        src (pliki źródłowe)
+        lib (pliki wynikowe)
