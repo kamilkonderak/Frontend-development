@@ -5,3 +5,6 @@ TypeScript
         .babelrc (Babel)
         src (pliki źródłowe)
         lib (pliki wynikowe)
+
+Zadanie:
+Klasa domenowe TS + mini api CRUD, wykorzystać interface, dziedziczenie,
