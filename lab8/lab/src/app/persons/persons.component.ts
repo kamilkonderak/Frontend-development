@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Person} from './../model/person';
 
 @Component({
   selector: 'app-persons',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonsComponent implements OnInit {
 
-  constructor() { }
+  persons: Person[];
+  selectedPerson: Person;
 
+  constructor() {
+    this.persons = [new Person('Bolek',1978), new Person('Lolek', 1998)]
+   }
+
+   selectPerson(person: Person)
+ {
+  this.selectedPerson = person;
+ }
   ngOnInit() {
   }
 
