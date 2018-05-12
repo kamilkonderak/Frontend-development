@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 export class Person{
     name: string;
     yob: number;

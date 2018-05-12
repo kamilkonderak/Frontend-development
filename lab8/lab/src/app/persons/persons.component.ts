@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person} from './../model/person';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-persons',

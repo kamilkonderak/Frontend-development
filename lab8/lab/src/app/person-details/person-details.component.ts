@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person} from './../model/person';
 
 @Component({
@@ -10,6 +10,11 @@ export class PersonDetailsComponent implements OnInit {
 
   @Input() personToShow: string;
 
+  @Output() childChanged: new EventEmitter<Person>();
   ngOnInit() {
+  }
+
+  informParent() {
+    this.childChanged.emit(this.personToShow);
   }
 }
