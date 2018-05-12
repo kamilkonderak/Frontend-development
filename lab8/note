@@ -1,0 +1,6 @@
+1. Interakcja między komponentami 
+    - "view" <-> "model"
+    - data binding
+    () Event - API między komponentami
+    <button (click) = "parentMethod()">
+2. Formularze
