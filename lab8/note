@@ -4,3 +4,7 @@
     () Event - API między komponentami
     <button (click) = "parentMethod()">
 2. Formularze
+
+Zadanie:
+
+Wyszukiwarka, wyszukiwanie z objektów w danej dziedzinie (Reactive Form)
