@@ -1,0 +1,7 @@
+-forms - form group, form control
+-services - Dependency Injection
+-service jako singleton
+
+wszystkie operacje IO - asynchronicznie
+async 
+-remote/http
