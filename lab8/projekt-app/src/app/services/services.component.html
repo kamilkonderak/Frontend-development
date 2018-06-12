@@ -1,0 +1,20 @@
+<h2>My Services</h2>
+<ul class="services">
+    <li *ngFor="let service of services"
+    [class.selected]="service === selectedService"
+    (click)="onSelect(service)">
+    <span class="badge">{{service.id}}</span> {{service.name}}
+  </li>
+  </ul>
+
+  <app-service-detail [service]="selectedService"></app-service-detail>
+
+<!--   <div *ngIf="selectedService">
+  <h2>{{ selectedService.name | uppercase }} Details</h2>
+<div><span>id: </span>{{selectedService.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedService.name" placeholder="name">
+  </label>
+</div>
+</div> -->
