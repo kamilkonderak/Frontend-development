@@ -9,9 +9,14 @@ import { SERVICES } from '../mock-services';
 export class ServicesComponent implements OnInit {
 
   services = SERVICES;
+  selectedService: Service;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(sercice: Service): void{
+      this.selectedService = sercice;
   }
 
 }

@@ -1,8 +1,8 @@
 import {Service} from './service/service'
 
 export const SERVICES: Service[] = [
-    {id: 1, name: "Computing service"},
-    {id: 2, name: "Analiyzing service"},
-    {id: 3, name: "AI service"},
-    {id: 4, name: "Storage service"}
+    {id: 1, name: "Computing service", price: 12, available: true, amount: 123},
+    {id: 2, name: "Analiyzing service", price: 3, available: true, amount: 13413},
+    {id: 3, name: "AI service", price: 1, available: false, amount: 0},
+    {id: 4, name: "Storage service", price: 0.4, available: true, amount: 1224213}
 ]

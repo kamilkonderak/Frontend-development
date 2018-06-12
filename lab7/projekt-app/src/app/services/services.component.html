@@ -7,7 +7,9 @@
   </li>
   </ul>
 
-  <div *ngIf="selectedService">
+  <app-service-detail [service]="selectedService"></app-service-detail>
+
+<!--   <div *ngIf="selectedService">
   <h2>{{ selectedService.name | uppercase }} Details</h2>
 <div><span>id: </span>{{selectedService.id}}</div>
 <div>
@@ -15,4 +17,4 @@
     <input [(ngModel)]="selectedService.name" placeholder="name">
   </label>
 </div>
-</div>
+</div> -->

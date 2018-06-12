@@ -1,0 +1,24 @@
+<div *ngIf="service">
+
+    <h2>{{ service.name | uppercase }} Details</h2>
+    <div>
+      <label>name:
+        <input [(ngModel)]="service.name" placeholder="name"/>
+      </label>
+    </div>
+    <div>
+      <label>Price:
+        {{service.price}}
+      </label>
+    </div>
+    <div>
+      <label>Available:
+        {{service.available}}
+      </label>
+    </div>
+    <div>
+      <label>Amount:
+        {{service.amount}}
+      </label>
+    </div>
+  </div>
