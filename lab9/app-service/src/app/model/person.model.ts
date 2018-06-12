@@ -5,6 +5,6 @@ export class Person {
 
     constructor(public im: string, public rokUr: number){
         this.imie = im;
-       this.yob = rokUr;
+         this.yob = rokUr;
     }
 }

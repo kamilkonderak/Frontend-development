@@ -1,0 +1,24 @@
+Routing
+zrobić tutorial na angularu
+
+
+
+Podsumowanie:
+webpack (GULP/GRUNT)
+    -> transpiler/kompilator
+                    ES5
+    -> Optymalizacja
+    -> Bundle (Lazy module loading)
+    -> SPA
+    -> Uglyfication
+
+- Debugging
+- Security
+- HTTP/REST - response code - 2xx, 3xx, 4xx, 5xx
+- JSON
+- Testowanie
+
+ENV="PROD" ......
+
+
+EXPRESS
