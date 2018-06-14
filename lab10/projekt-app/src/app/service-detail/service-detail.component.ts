@@ -39,4 +39,10 @@ export class ServiceDetailComponent implements OnInit {
   Buy(service: Service): void{
     this.service.amount = service.amount -1;
 }
+
+save(): void {
+  this.serviceService.updateService(this.service)
+    .subscribe(() => this.goBack());
+}
+
 }

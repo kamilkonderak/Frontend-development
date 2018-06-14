@@ -4,5 +4,17 @@
     <a routerLink="/detail/{{service.id}}">
     <span class="badge">{{service.id}}</span> {{service.name}}
     </a>
+    <button class="delete" title="delete service"
+    (click)="delete(service)">x</button>
   </li>
   </ul>
+
+  <div>
+      <label>Service name:
+        <input #serviceName  (keyup.enter)="add(serviceName.value)" (blur)="add(serviceName.value)"/>
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button  (click)="add(serviceName.value); serviceName.value=''">
+        Add
+      </button>
+    </div>

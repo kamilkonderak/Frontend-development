@@ -1,5 +1,13 @@
-<input type="search" placeholder="Search term" [formControl]="SearchControl">
-
-<ul>
-<li *ngFor="let searchPhrase of searchService">{{searchTerm}}</li>
-</ul>
+<div id="search-component">
+        <h4>Service Search</h4>
+       
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+       
+        <ul class="search-result">
+          <li *ngFor="let service of services$ | async" >
+            <a routerLink="/detail/{{service.id}}">
+              {{service.name}}
+            </a>
+          </li>
+        </ul>
+      </div>

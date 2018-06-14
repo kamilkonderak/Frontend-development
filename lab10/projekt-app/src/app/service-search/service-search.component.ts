@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms'
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import { Service } from '../service/service';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-service-search',
@@ -8,18 +12,26 @@ import {FormControl} from '@angular/forms'
 })
 export class ServiceSearchComponent implements OnInit {
 
-  SearchControl = new FormControl();
-  searchService: string[];
+  services$: Observable<Service[]>;
+  private searchTerms = new Subject<string>();
 
-  constructor() {
-    this.SearchControl.valueChanges.subscribe(
-      searchPhrase => {
-        this.searchService.push(searchPhrase);
-      }
-    )
-   }
-
-  ngOnInit() {
+  constructor(private serviceService: ServiceService) {}
+ 
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
-
+ 
+  ngOnInit(): void {
+    this.services$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.serviceService.searchServices(term)),
+    );
+  }
 }

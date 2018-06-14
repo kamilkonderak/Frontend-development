@@ -26,12 +26,19 @@ getServices(): void {
       .subscribe(services => this.services = services);
 }
 
-addService(name: string): void {
-  console.log(name)
-/*     if (name) {
-      let service2 = new Service(name);
-      this.services.push(service2);
-    }  */
+add(name: string): void {
+  name = name.trim();
+  if (!name) { return; }
+  this.serviceService.addService({ name } as Service)
+    .subscribe(hero => {
+      this.services.push(hero);
+    });
 }
+
+delete(service: Service): void {
+  this.services = this.services.filter(h => h !== service);
+  this.serviceService.deleteService(service).subscribe();
+}
+
 }
 

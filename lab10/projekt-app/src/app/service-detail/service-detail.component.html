@@ -2,27 +2,28 @@
 
     <h2>{{ service.name | uppercase }} Details</h2>
     <div>
-      <label>name:
+      <label>Name:      </label>
         <input [(ngModel)]="service.name" placeholder="name"/>
-      </label>
+
     </div>
     <div>
-      <label>Price:
-        {{service.price}}
-      </label>
+      <label>Price:      </label>
+        <input [(ngModel)]="service.price" placeholder="price"/>
+
     </div>
     <div>
-      <label>Available:
-        {{service.available}}
-      </label>
+      <label>Available:      </label>
+        <input [(ngModel)]="service.available" placeholder="available" type="checkbox"/>
+
     </div>
     <div>
-      <label>Amount:
-        {{service.amount}}
-      </label>
+      <label>Amount:      </label>
+        <input [(ngModel)]="service.amount" placeholder="amount" type="number"/>
+
     </div>
     <div>
       <button (click)="Buy(service)">Buy</button>
     </div>
+    <button (click)="save()">save</button>
     <button (click)="goBack()">go back</button>
   </div>
