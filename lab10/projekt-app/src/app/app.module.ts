@@ -9,6 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import {ServiceService} from './service.service';
 import {MessageService} from './message.service';
 import {ServiceSearchComponent} from './service-search/service-search.component';
+import { AppRoutingModule } from './/app-routing.module';
 //import { ServiceSearchComponent } from './service-search/service-search.component'
 
 @NgModule({
@@ -24,7 +25,8 @@ import {ServiceSearchComponent} from './service-search/service-search.component'
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [ServiceService, MessageService],
   bootstrap: [AppComponent]
