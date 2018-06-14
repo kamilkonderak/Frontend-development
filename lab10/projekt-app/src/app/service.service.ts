@@ -72,7 +72,7 @@ searchServices(term: string): Observable<Service[]> {
   }
   return this.http.get<Service[]>(`${this.servicesUrl}/?name=${term}`).pipe(
     tap(_ => this.log(`found services matching "${term}"`)),
-    catchError(this.handleError<Hero[]>('searchServices', []))
+    catchError(this.handleError<Service[]>('searchServices', []))
   );
 }
 
