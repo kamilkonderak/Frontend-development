@@ -1,29 +1,7 @@
 <h2>My Services</h2>
 <ul class="services">
-    <li *ngFor="let service of services"
-    [class.selected]="service === selectedService"
-    (click)="onSelect(service)">
+    <li *ngFor="let service of services">
+    <a routerLink="/detail/{{service.id}}"></a>
     <span class="badge">{{service.id}}</span> {{service.name}}
   </li>
   </ul>
-
-  <form [formGroup]="myForm" (ngSubmit)="mySubmit(myForm.value)">
-    <input type="text" [formControl]="imie">
-    <input type="text" [formControl]="yob">
-  
-  <button type="submit">ERROR</button>
-  </form>
-  
-  
-  <div *ngIf="imie.hasError('required')">Imie wymagane</div>
-  <div *ngIf="imie.hasError('franekValue')">Franek odpada</div>
-
-  
-  <form [formGroup]="myForm" (ngSubmit)="mySubmit(myForm.value)">
-  <input #serviceid (blur)="addService(name);name=''">
-<!--   <input #servicename "newService.name='' ">
-  <input #serviceprice "newService.price='' ">
-  <input #serviceavailable "newService.available='' ">
-  <input #serviceamount "newService.amount='' "> -->
-
-<button (click)="addService(name)">Add</button>

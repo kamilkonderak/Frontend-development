@@ -20,11 +20,6 @@ export class ServicesComponent implements OnInit {
     this.getServices();
   }
 
-  onSelect(service: Service): void{
-      this.selectedService = service;
-  }
-
-
 
 getServices(): void {
   this.serviceService.getServices()

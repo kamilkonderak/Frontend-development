@@ -10,6 +10,7 @@ import {ServiceService} from './service.service';
 import {MessageService} from './message.service';
 import {ServiceSearchComponent} from './service-search/service-search.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 //import { ServiceSearchComponent } from './service-search/service-search.component'
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ServicesComponent,
     ServiceDetailComponent,
     MessagesComponent,
-    ServiceSearchComponent
+    ServiceSearchComponent,
+    DashboardComponent
     //LoginFormComponent,,
     //ServiceSearchComponent
   ],
