@@ -24,9 +24,7 @@ export class ServicesComponent implements OnInit {
       this.selectedService = service;
   }
 
-  onBuy(service: Service): void{
-    this.selectedService.amount = service.amount -1;
-}
+
 
 getServices(): void {
   this.serviceService.getServices()
