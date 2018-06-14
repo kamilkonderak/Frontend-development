@@ -1,7 +1,8 @@
 <h2>My Services</h2>
 <ul class="services">
     <li *ngFor="let service of services">
-    <a routerLink="/detail/{{service.id}}"></a>
+    <a routerLink="/detail/{{service.id}}">
     <span class="badge">{{service.id}}</span> {{service.name}}
+    </a>
   </li>
   </ul>
