@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ServiceAddComponent } from './service-add/service-add.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     ServiceDetailComponent,
     MessagesComponent,
     ServiceSearchComponent,
-    DashboardComponent
+    DashboardComponent,
+    ServiceAddComponent
     //LoginFormComponent,,
     //ServiceSearchComponent
   ],
