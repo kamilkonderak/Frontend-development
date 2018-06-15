@@ -1,3 +1,5 @@
+//http-server
+
 var move = {
     UP: 1,
     RIGHT: 2,
