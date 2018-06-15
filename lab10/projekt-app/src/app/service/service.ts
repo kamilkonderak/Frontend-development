@@ -5,8 +5,4 @@ export class Service {
     available: boolean;
     amount: number;
 
-constructor(name: string){
-    this.name = name;
-  }
-
 }

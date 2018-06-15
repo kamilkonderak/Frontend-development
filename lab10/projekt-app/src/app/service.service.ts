@@ -6,8 +6,12 @@ import { SERVICES } from "../app/mock-services"
 import { MessageService } from './message.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
+
 
 
 export class ServiceService {
@@ -23,7 +27,7 @@ export class ServiceService {
     const url = `${this.servicesUrl}/${id}`;
     return this.http.get<Service>(url).pipe(
       tap(_ => this.log(`fetched service id=${id}`)),
-    catchError(this.handleError<Hero>(`getService id=${id}`))
+      catchError(this.handleError<Service>(`getService id=${id}`))
   );
   }
 
@@ -35,6 +39,20 @@ export class ServiceService {
       catchError(this.handleError('getServices', []))
     );
   }
+
+    /** GET hero by id. Return `undefined` when id not found */
+    getHeroNo404<Data>(id: number): Observable<Service> {
+      const url = `${this.servicesUrl}/?id=${id}`;
+      return this.http.get<Service[]>(url)
+        .pipe(
+          map(services => services[0]), // returns a {0|1} element array
+          tap(h => {
+            const outcome = h ? `fetched` : `did not find`;
+            this.log(`${outcome} service id=${id}`);
+          }),
+          catchError(this.handleError<Service>(`getService id=${id}`))
+        );
+    }
 
   private log(message: string) {
     this.messageService.add('Service: ' + message);
@@ -67,7 +85,6 @@ export class ServiceService {
   /* GET heroes whose name contains search term */
 searchServices(term: string): Observable<Service[]> {
   if (!term.trim()) {
-    // if not search term, return empty hero array.
     return of([]);
   }
   return this.http.get<Service[]>(`${this.servicesUrl}/?name=${term}`).pipe(
@@ -76,14 +93,25 @@ searchServices(term: string): Observable<Service[]> {
   );
 }
 
+
+private handleError<T> (operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // TODO: better job of transforming error for user consumption
+    this.log(`${operation} failed: ${error.message}`);
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
  
-  private handleError(error: any): Promise<any> {
+/*   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
- }
+ } */
 
 }
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
