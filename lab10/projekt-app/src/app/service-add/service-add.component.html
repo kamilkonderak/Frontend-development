@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 <div class="container">
 
-  <h1>Reactive Form</h1>
+  <h1>Add new service</h1>
 
   <form [formGroup]="serviceForm" #formDir="ngForm">
 
@@ -27,8 +28,23 @@
 
       <div class="form-group">
         <label for="price">Price</label>
-        <input id="price" class="form-control" formControlName="price">
+        <input id="price" class="form-control" formControlName="price" required type="number">
+        
+        <div *ngIf="price.invalid && price.touched" class="alert alert-danger">
+            <div *ngIf="price.errors.required">price is required.</div>
+          </div>
+
       </div>
+
+      <div class="form-group">
+          <label for="amount">Amount</label>
+          <input id="amount" class="form-control" formControlName="amount" required ng-model="value" type="range" min="0" max="10">
+          <code>{{value}}</code>
+          <div *ngIf="amount.invalid && amount.touched" class="alert alert-danger">
+              <div *ngIf="amount.errors.required">amount is required.</div>
+            </div>
+        </div>
+
 
       <div class="form-group">
         <label for="isavailable">Service available</label>
@@ -47,10 +63,11 @@
   </form>
 
   <div class="submitted-message" *ngIf="formDir.submitted">
-    <p>You've submitted your hero, {{ serviceForm.value.name }}!</p>
-    <button (click)="formDir.resetForm({})">Add new hero</button>
+    <p>You've submitted your service, {{ serviceForm.value.name }}!</p>
+    <button (click)="formDir.resetForm({})">Add new service</button>
   </div>
 </div>
+
 
 
 <!-- 
