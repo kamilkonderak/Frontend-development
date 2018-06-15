@@ -30,8 +30,8 @@ add(name: string): void {
   name = name.trim();
   if (!name) { return; }
   this.serviceService.addService({ name } as Service)
-    .subscribe(hero => {
-      this.services.push(hero);
+    .subscribe(service => {
+      this.services.push(service);
     });
 }
 

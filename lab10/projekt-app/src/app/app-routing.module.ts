@@ -5,6 +5,7 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import {ServiceDetailComponent} from './service-detail/service-detail.component'
 import { MessagesComponent} from './messages/messages.component'
 import { ServiceSearchComponent} from './service-search/service-search.component'
+import { ServiceAddComponent} from './service-add/service-add.component'
 
 const routes: Routes = [
   { path: 'services', component: ServicesComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: ServiceDetailComponent },
   { path: 'messages', component: MessagesComponent },
   { path: 'search', component: ServiceSearchComponent },
+  { path: 'add', component: ServiceAddComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 

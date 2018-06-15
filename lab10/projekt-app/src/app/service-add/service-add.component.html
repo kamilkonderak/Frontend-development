@@ -1,3 +1,60 @@
-<p>
-  service-add works!
-</p>
+<div class="container">
+
+  <h1>Reactive Form</h1>
+
+  <form [formGroup]="serviceForm" #formDir="ngForm">
+
+    <div [hidden]="formDir.submitted">
+
+      <div class="form-group">
+
+        <label for="name">Name</label>
+        <input id="name" class="form-control" formControlName="name" required>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 6 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name cannot be Bob.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" class="form-control" formControlName="price">
+      </div>
+
+      <div class="form-group">
+        <label for="isavailable">Service available</label>
+        <select id="isavailable" class="form-control" formControlName="isavailable" required>
+          <option *ngFor="let p of availability" [value]="p">{{p}}</option>
+        </select>
+
+        <div *ngIf="isavailable.invalid && isavailable.touched" class="alert alert-danger">
+          <div *ngIf="isavailable.errors.required">isavailable is required.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default" [disabled]="serviceForm.invalid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="formDir.resetForm({})">Reset</button>
+    </div>
+  </form>
+
+  <div class="submitted-message" *ngIf="formDir.submitted">
+    <p>You've submitted your hero, {{ serviceForm.value.name }}!</p>
+    <button (click)="formDir.resetForm({})">Add new hero</button>
+  </div>
+</div>
+
+
+<!-- 
+  Copyright 2017-2018 Google Inc. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license
+  -->
