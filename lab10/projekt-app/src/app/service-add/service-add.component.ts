@@ -26,7 +26,7 @@ export class ServiceAddComponent implements OnInit {
       'name': new FormControl(this.service.name, [
         Validators.required,
         Validators.minLength(6),
-        forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
+        forbiddenNameValidator(/AI/i) // <-- Here's how you pass in the custom validator.
       ]),
       'price': new FormControl(this.service.price, Validators.min(0)),
       'isavailable': new FormControl(this.service.isavailable, Validators.required ),
